@@ -5,7 +5,7 @@ import { Provider } from "react-redux"
 
 import store from "./utils/store"
 
-import { createBrowserRouter,Outlet, RouterProvider } from "react-router-dom"
+import { createBrowserRouter,RouterProvider } from "react-router-dom"
 import MainContainer from "./MainContainer"
 import WatchPage from "./WatchPage"
 
