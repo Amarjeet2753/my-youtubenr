@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
 const VideoCard = ({info}) =>{
     
-    console.log("info",info?.snippet);
-    console.log("info",info);
+    // console.log("info",info?.snippet);
+    // console.log("info",info);
     
     const {snippet ,statistics} = info;
     const {channelTitle ,title, thumbnails} = snippet;

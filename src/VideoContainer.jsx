@@ -27,8 +27,8 @@ const VideoContainer = () => {
 
         const vidData = await data.json()
 
-        console.log(vidData.items)
-        console.log(vidData.items[0])
+        // console.log(vidData.items)
+        // console.log(vidData.items[0])
         setVideoList(vidData.items)
     }
     
