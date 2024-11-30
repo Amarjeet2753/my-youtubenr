@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const searchSlice = createSlice({
     
-    name : "searc",
+    name : "search",
     initialState :{},
 
     reducers:{
