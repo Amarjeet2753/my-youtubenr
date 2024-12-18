@@ -10,11 +10,16 @@ import { SEARCH_SUGGESTION_API } from "./Constant"
 
 import { cacheSearchSuggestion } from "./utils/searchSlice"
 
+import { API_RESULT_SEARCH_BY_KEYWORD } from "./Constant"
+import { useNavigate } from "react-router-dom"
+
 const Header = () => {
 
   const [showSearchSuggestion, setShowSearchSuggestion] = useState(false);
   const [searchSuggetionResult, setSearchSuggetionResult] = useState([])
   const [searchQuery, setSearchQuery] = useState("")
+
+  const navigate  = useNavigate();
   
   const searchCache =  useSelector((state) => state.search)
     
@@ -72,6 +77,16 @@ const Header = () => {
     }
   }
 
+  // https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=YOURKEYWORD&type=video&key=YOURAPIKEY
+
+
+  const handleSearchButton = async ()=>{
+
+    // const res = await fetch(`${API_RESULT_SEARCH_BY_KEYWORD}${searchQuery}&type=video&key=${GOOGLE_API_KEY}`);
+    
+     navigate(`/results?search_query=${searchQuery}`)
+  }
+
 
   return (
     <div className="grid grid-flow-col m-2 p-1  shadow-lg">
@@ -114,8 +129,9 @@ const Header = () => {
                   
               </div>)}
           </div>
-
-          <button className="px-5 py-2 bg-gray-300 border border-gray-400 rounded-r-3xl">
+         
+         
+          <button className="px-5 py-2 bg-gray-300 border border-gray-400 rounded-r-3xl" onClick={()=>handleSearchButton()}>
             🔍
           </button>
         </div>

@@ -8,6 +8,8 @@ import store from "./utils/store"
 import { createBrowserRouter,RouterProvider } from "react-router-dom"
 import MainContainer from "./MainContainer"
 import WatchPage from "./WatchPage"
+import VideoSearchResults from "./VideoSearchResults"
+import VideoContainer from "./VideoContainer"
 
 
 const appRouter = createBrowserRouter([{
@@ -16,12 +18,23 @@ const appRouter = createBrowserRouter([{
      children :[
            {
             path : "/",
-            element : <MainContainer/>
+            element : <MainContainer/>,
+            children : [
+               {
+                path :"/",
+                element : <VideoContainer/>
+               },
+               {
+                path : "/results",
+                element : <VideoSearchResults/>
+               },
+            ]
            },
            {
             path : "/watch",
             element : <WatchPage/>
            },
+          
      ]
 
      
@@ -36,8 +49,10 @@ function App() {
       <div>
         <Provider store={store}>
 
-        <Header/>
-        <RouterProvider router={appRouter}></RouterProvider>
+        <RouterProvider router={appRouter}>
+
+        {/* <Header/> */}
+        </RouterProvider>
         {/* <Body/> */}
       </Provider>
       
